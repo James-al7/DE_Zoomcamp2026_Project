@@ -1,0 +1,7 @@
+models:
+  - name: int_user_metrics
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
