@@ -1,5 +1,18 @@
-
 services:
+  kestra:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kestra
+    ports:
+      - "8080:8080"
+    command: server local
+    volumes:
+      - ./dbt_instacart:/app/dbt_instacart
+      - ./data_ingestion:/app/data_ingestion
+      - kestra-data:/app/storage
+      - /tmp:/tmp
+
   postgres:
     image: postgres:15
     container_name: instacart_postgresdb
@@ -14,3 +27,4 @@ services:
 
 volumes:
   pgdata:
+  kestra-data:
