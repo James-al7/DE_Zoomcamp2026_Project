@@ -6,6 +6,9 @@ services:
     container_name: kestra
     ports:
       - "8080:8080"
+      - "8085:8085"
+      - "8090:8090"
+
     command: server local
     volumes:
       - ./dbt_instacart:/app/dbt_instacart
